@@ -1,0 +1,11 @@
+name: ecspresso
+jobs:
+  build:
+    permissions: write-all
+    steps:
+      - run: curl -sS https://api.github.com/repos/kayac/ecspresso/releases
+      - run: jq --version
+      - uses: actions/checkout@v3
+      - uses: kayac/ecspresso@v1
+        with:
+          version: latest
